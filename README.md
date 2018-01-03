@@ -1,7 +1,6 @@
-## Server
-- DREAM_BREAKER_SERVER_PORT
-## Storybook
-- STORY_UI_COMPONENT_SERVER_HOST
-- STORY_UI_COMPONENT_SERVER_PORT
-## Build
-- DREAM_BREAKER_BUILD_ANALYZE
+# Redux Knife Manager
+
+[![Build Status](https://travis-ci.org/madetheforcebewithyou/redux-knife-manager.svg?branch=master)](https://travis-ci.org/madetheforcebewithyou/redux-knife-manager)
+
+[![Coverage Status](https://coveralls.io/repos/github/madetheforcebewithyou/redux-knife-manager/badge.svg?branch=master)](https://coveralls.io/github/madetheforcebewithyou/redux-knife-manager?branch=master)
+
