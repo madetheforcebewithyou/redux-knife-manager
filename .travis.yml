@@ -1,0 +1,34 @@
+language: node_js
+node_js:
+  - "6"
+  - "8"
+
+script:
+  - yarn run eslint
+  - yarn run test
+  - yarn run build
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+deploy:
+  provider: npm
+  skip_cleanup: true
+  email: lalayueh@gmail.com
+  api_key:
+    secure: FHybNpP9xg4zb3Q+npl/kvvceJo7tZZCsMAYCtZBgxNqBk37O9lgAkrUK9pFHrO1EBFscOKy6gOXNE2G9m9fmjgXkK9U+h/oIQK1ncK8bdSUO2/xQe+EcB3kGhDPCYGMiRlAwCQmV6O/5ddU6f1H6y0ad0jlujvlVCtGTuqlKfXkUkFSfif88T7k8UdZ7D48nmcqGN7pQGf/Ltup2HlUE6DFisaU+iS9+yHv9L1zFPhiRAmyuVRIuxWg8MaSEkFtUM01KTbtNt/DdPZJp4vUMXDh1Jye8H/HrdbDhP1HOPE2UtCNU0A6ZhZzDNHc2FOGzy+P81xN1Jw/NFzf3d55GrzdmdqjLrwL9wkZf7myN+nMNm2J2UHSoyUtq1HfdQJucWmWx36V2jqjseqiHy08FWnzggcv2RE993Hozf/aR3kiNsieFen0JPb8qJ4GrEiO7dF7CPkOuOa3uGAO8BYwJqTtzz7YVPJVGXm5mxklQ555HjxEldpwJx242UQwmHiBwEuTH0l8iak9uk6QYRIoyGZ6dZYNlLIk3MVMmvzGeCI4okqpQM3LAhBbMZQadQ3MDz6yq1fFkju7o/xwwLk49s3W8i5O3YQYw45loN7pdi0N1isijCcZCKVuQaKsmpfeNMp7gRrJEuGnY+5tftGENa7/PzFlUlEv4h54DWB6lSI=
+  on:
+    node: "6"
+    repo: madetheforcebewithyou/redux-knife-manager
+    condition: "$TRAVIS_TAG =~ ^v([0-9]+.){2}[0-9]+$"
+    all_branches: true
+
+notifications:
+  email:
+    recipients:
+      - lalayueh@gmail.com
+      - bob76828@gmail.com
+    on_success: change
+    on_failure: always

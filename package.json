@@ -1,0 +1,87 @@
+{
+  "name": "redux-knife-manager",
+  "version": "1.0.7",
+  "description": "The redux utility for managing redux entities.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madetheforcebewithyou/redux-knife-manager"
+  },
+  "bugs": {
+    "url": "https://github.com/madetheforcebewithyou/redux-knife-manager/issues"
+  },
+  "homepage": "https://github.com/madetheforcebewithyou/redux-knife-manager",
+  "contributors": [
+    {
+      "name": "lala",
+      "email": "lalayueh@gmail.com"
+    },
+    {
+      "name": "bob",
+      "email": "bob76828@gmail.com"
+    }
+  ],
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "main": "./build",
+  "scripts": {
+    "eslint": "eslint .",
+    "eslint-fix": "eslint --fix .",
+    "eslint-precommit": "git diff --name-only --cached | grep -E \".*\\.js$\" | xargs eslint",
+    "test": "better-npm-run test",
+    "build": "better-npm-run build"
+  },
+  "betterScripts": {
+    "test": {
+      "command": "nyc mocha",
+      "env": {
+        "NODE_ENV": "test"
+      }
+    },
+    "build": {
+      "command": "gulp build",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  },
+  "pre-commit": [
+    "eslint-precommit"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^8.1.2",
+    "babel-plugin-istanbul": "^4.1.4",
+    "babel-plugin-lodash": "^3.2.11",
+    "babel-plugin-transform-remove-console": "^6.8.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-1": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "better-npm-run": "^0.1.0",
+    "chai": "^4.1.1",
+    "del": "^3.0.0",
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-security": "^1.2.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-help": "^1.6.1",
+    "gulp-util": "^3.0.8",
+    "mocha": "^4.1.0",
+    "nyc": "^11.1.0",
+    "pre-commit": "^1.2.2",
+    "run-sequence": "^2.1.0",
+    "uuid": "^3.1.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "redux": "^3.7.2"
+  }
+}
