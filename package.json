@@ -29,6 +29,7 @@
   "license": "MIT",
   "main": "./build",
   "scripts": {
+    "install-peer": "yarn add -P --no-lockfile $(node --harmony -e \"process.stdout.write(String(Object.entries(require('./package.json').peerDependencies).map(d => d.join('@')).join(' ')))\")",
     "eslint": "eslint .",
     "eslint-fix": "eslint --fix .",
     "eslint-precommit": "git diff --name-only --cached | grep -E \".*\\.js$\" | xargs eslint",
