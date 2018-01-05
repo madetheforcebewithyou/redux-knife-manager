@@ -3,6 +3,7 @@
     "**/*.spec.js",
     "**/__test__",
     "build",
+    "examples",
     "test",
     "gulp-tasks",
     "gulpfile.babel.js"
