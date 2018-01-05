@@ -8,3 +8,4 @@ yarn-error.log*
 /.nyc_output
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
+/examples/todo-mvc/node_modules/
