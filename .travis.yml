@@ -9,7 +9,7 @@ cache:
     - node_modules
 
 before_script:
-  - yarn install --peer
+  - yarn run install-peer
 
 script:
   - yarn run eslint
