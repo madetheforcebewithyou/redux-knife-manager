@@ -17,11 +17,12 @@ describe('todos reducer', () => {
   });
 
   it('should handle addTodo', () => {
-    expect(reducer({ list: [] }, action.addTodo({ text: 'Run the tests' })))
+    const text = 'Run the addTodo tests';
+    expect(reducer({ list: [] }, action.addTodo({ text })))
     .toEqual({
       list: [
         {
-          text: 'Run the tests',
+          text,
           completed: false,
           id: 0
         },
@@ -38,7 +39,7 @@ describe('todos reducer', () => {
             id: 0
           },
           {
-            text: 'Run the tests',
+            text: 'Run the deleteTodo tests',
             completed: false,
             id: 1
           },
@@ -57,10 +58,11 @@ describe('todos reducer', () => {
   });
 
   it('should handle editTodo', () => {
+    const newText = 'Fix the editTodo tests';
     expect(reducer({
         list: [
           {
-            text: 'Run the tests',
+            text: 'Run the editTodo tests',
             completed: false,
             id: 1
           }, {
@@ -70,11 +72,11 @@ describe('todos reducer', () => {
           }
         ],
       },
-      action.editTodo({ text: 'Fix the tests', id: 1 }))
+      action.editTodo({ text: newText, id: 1 }))
     ).toEqual({
       list: [
         {
-          text: 'Fix the tests',
+          text: newText,
           completed: false,
           id: 1
         }, {
@@ -87,14 +89,17 @@ describe('todos reducer', () => {
   });
 
   it('should handle completeTodo', () => {
+    const text1 = 'Run the completeTodo tests';
+    const text2 = 'Use Redux';
+
     expect(reducer({
         list: [
           {
-            text: 'Run the tests',
+            text: text1,
             completed: false,
             id: 1
           }, {
-            text: 'Use Redux',
+            text: text2,
             completed: false,
             id: 0
           }
@@ -104,11 +109,11 @@ describe('todos reducer', () => {
     ).toEqual({
       list: [
         {
-          text: 'Run the tests',
+          text: text1,
           completed: true,
           id: 1
         }, {
-          text: 'Use Redux',
+          text: text2,
           completed: false,
           id: 0
         },
@@ -117,14 +122,17 @@ describe('todos reducer', () => {
   });
 
   it('should handle completeAll', () => {
+    const text1 = 'Run the completeAll tests';
+    const text2 = 'Use Redux';
+
     expect(reducer({
         list: [
           {
-            text: 'Run the tests',
+            text: text1,
             completed: true,
             id: 1
           }, {
-            text: 'Use Redux',
+            text: text2,
             completed: false,
             id: 0
           },
@@ -134,11 +142,11 @@ describe('todos reducer', () => {
     ).toEqual({
       list: [
         {
-          text: 'Run the tests',
+          text: text1,
           completed: true,
           id: 1
         }, {
-          text: 'Use Redux',
+          text: text2,
           completed: true,
           id: 0
         },
@@ -149,11 +157,11 @@ describe('todos reducer', () => {
     expect(reducer({
         list: [
           {
-            text: 'Run the tests',
+            text: text1,
             completed: true,
             id: 1
           }, {
-            text: 'Use Redux',
+            text: text2,
             completed: true,
             id: 0
           },
@@ -163,11 +171,11 @@ describe('todos reducer', () => {
     ).toEqual({
       list: [
         {
-          text: 'Run the tests',
+          text: text1,
           completed: false,
           id: 1
         }, {
-          text: 'Use Redux',
+          text: text2,
           completed: false,
           id: 0
         },
@@ -176,14 +184,17 @@ describe('todos reducer', () => {
   });
 
   it('should handle clearCompleted', () => {
+    const text1 = 'Run the completeAll tests';
+    const text2 = 'Use Redux';
+
     expect(reducer({
         list: [
           {
-            text: 'Run the tests',
+            text: text1,
             completed: true,
             id: 1
           }, {
-            text: 'Use Redux',
+            text: text2,
             completed: false,
             id: 0
           },
@@ -193,7 +204,7 @@ describe('todos reducer', () => {
     ).toEqual({
       list: [
         {
-          text: 'Use Redux',
+          text: text2,
           completed: false,
           id: 0
         },
