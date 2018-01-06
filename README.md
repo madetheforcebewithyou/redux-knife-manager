@@ -343,6 +343,7 @@ const store = createStore(combineReducers(reduxKnifeManager.getRootReducer()));
 * [ducks-modular-redux](https://github.com/erikras/ducks-modular-redux)
 * [reduck](https://github.com/enkidevs/reduck)
 * [dva](https://github.com/dvajs/dva)
+* [redux-actions](https://github.com/reduxactions/redux-actions)
 * [redux-act](https://github.com/pauldijou/redux-act)
 * [redux-auto](https://github.com/codemeasandwich/redux-auto)
 
