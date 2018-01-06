@@ -9,15 +9,12 @@
 Redux Knife Manager is the lightweight library for easily managing, encapsulating and generating the redux entities such as action, reducer, selector and so on.
 
 Redux Knife Manager has following features:
-1. Use naming convention to generate the redux action, redux action type and selector automatically.
-
-2. Keep the codebase more cleaner even if cross-container interactions are very often.
-
-3. Prevent the collision of action type constants.
-
-4. Reuse the selector concept in redux containers and redux saga flows.
-
-5. Support universal application.
+* Use naming convention to generate the redux action, redux action type and selector automatically.
+* Keep the codebase more cleaner even if cross-container interactions are very often.
+* Prevent the collision of action type constants.
+* Reuse the selector concept in redux containers and redux saga flows.
+* Support universal application.
+* You can focus on redux reducer implementation and testing.
 
 In short, it can be used to reduce the codebase complexity and gain the better convention while developing.
 
