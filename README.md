@@ -277,7 +277,7 @@ console.log(counterKnife.selector.get(store.getState()));
 console.log(counterKnife.selector.getNum(store.getState()));
 
 
-// 7. Reducer should be also work well
+// 7. Reducer should also work well
 store.dispatch(counterKnife.action.increase({ value: 10 }));
 
 // You can get the num value of counterKnife via the following statement
@@ -336,8 +336,8 @@ const store = createStore(combineReducers(reduxKnifeManager.getRootReducer()));
 ```
 
 ## Todo
-* Adding the example of integrate with redux-saga
-* Adding the example of integrate with re-select
+* Adding the example for integrating with redux-saga
+* Adding the example for integrating with re-select
 
 ## Inspired by
 * [ducks-modular-redux](https://github.com/erikras/ducks-modular-redux)
