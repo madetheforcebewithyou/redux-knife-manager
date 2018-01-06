@@ -46,7 +46,7 @@ reduxKnifeManager.addKnife('counter', {
   reducerMap: ({ increase, decrease }) => ({
     [increase]: (state, action) => ({
       num: state.num + action.value,
-    })
+    }),
 
     [decrease]: (state, action) => ({
       num: state.num - action.value,
@@ -173,7 +173,7 @@ reduxKnifeManager.addKnife('counter', {
   reducerMap: ({ increase, decrease }) => ({
     [increase]: (state, action) => ({
       num: state.num + action.value,
-    })
+    }),
 
     [decrease]: (state, action) => ({
       num: state.num - action.value,
@@ -236,7 +236,7 @@ reduxKnifeManager.addKnife('counter', {
   reducerMap: ({ increase, decrease }) => ({
     [increase]: (state, action) => ({
       num: state.num + action.value,
-    })
+    }),
 
     [decrease]: (state, action) => ({
       num: state.num - action.value,
