@@ -298,9 +298,9 @@ The function `getKnives` will return all knives in Redux Knife Manager.
 reduxKnifeManager.initialize();
 
 // 2. Add knives to Redux Knife Manager
-reduxKnifeManager.add('k1', { ... });
-reduxKnifeManager.add('k2', { ... });
-reduxKnifeManager.add('k3', { ... });
+reduxKnifeManager.addKnife('k1', { ... });
+reduxKnifeManager.addKnife('k2', { ... });
+reduxKnifeManager.addKnife('k3', { ... });
 
 const knives = reduxKnifeManager.getKnives();
 
@@ -327,9 +327,9 @@ The function `getRootReducer` is used to get combined reducers of knives. It sho
 reduxKnifeManager.initialize();
 
 // 2. Add knives to Redux Knife Manager
-reduxKnifeManager.add('k1', { ... });
-reduxKnifeManager.add('k2', { ... });
-reduxKnifeManager.add('k3', { ... });
+reduxKnifeManager.addKnife('k1', { ... });
+reduxKnifeManager.addKnife('k2', { ... });
+reduxKnifeManager.addKnife('k3', { ... });
 
 // 3. Configure the redux store
 const store = createStore(combineReducers(reduxKnifeManager.getRootReducer()));
