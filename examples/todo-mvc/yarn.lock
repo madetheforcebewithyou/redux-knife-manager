@@ -5401,8 +5401,8 @@ reduce-function-call@^1.0.1:
     balanced-match "^0.4.2"
 
 redux-knife-manager@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/redux-knife-manager/-/redux-knife-manager-2.1.2.tgz#cff06a9816109556e767b8a3b01dff54c43a4ac0"
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/redux-knife-manager/-/redux-knife-manager-2.2.0.tgz#7da66f507d1812b400491c2fb7386ee5f18bf165"
   dependencies:
     lodash "^4.17.4"
 
