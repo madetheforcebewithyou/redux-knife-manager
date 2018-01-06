@@ -84,16 +84,16 @@ export default class App extends React.Comopnent {
     const { dispatch } = this.props;
     dispatch(counterKnife.action.increase({ value: Math.random() }));
   }
-  
+
   onDecrease() {
     // dispatch the decrease action
     const { dispatch } = this.props;
     dispatch(counterKnife.action.decrease({ value: 1 }));
   }
-  
+
   render() {
     const { num } = this.props;
-    
+
     return (
       <div>
         <button onClick={this.onIncrease}>Increase</button>
@@ -115,12 +115,12 @@ const counterKnife = reduxKnifeManager.getKnife('counter');
 export default function* counterSaga() {
   yield takeEvery(counterKnife.actionType.increase, function* handleIncrese() {
     ...
-  }); 
+  });
 }
 ```
 
 ## Detailed examples
-The project takes todoMVC as detailed examples, please refers the [examples foloder](https://github.com/madetheforcebewithyou/redux-knife-manager/tree/master/examples).
+The project takes todoMVC as detailed examples, please refers the [examples folder](https://github.com/madetheforcebewithyou/redux-knife-manager/tree/master/examples).
 
 ## API reference
 ### `initialize(options)`
@@ -130,7 +130,7 @@ The function `initialize` is used to initialize Redux Knife Manager. Since Redux
 * **options (Object):**
   * **namespace (String, default: 'app'):**  
     The namespace is the prefix of top level of redux store to restore the state of knives.
-    
+
 #### Example
 ```javascript
 reduxKnifeManager.initialize({
@@ -163,6 +163,7 @@ reduxKnifeManager.initialize({
   namespace: 'example',
 });
 
+
 // 2. Add a knife to Reudx Knife Manager
 reduxKnifeManager.addKnife('counter', {
   actionMap: ['increase', 'decrease'],
@@ -193,6 +194,7 @@ const store = createStore(combineReducers(reduxKnifeManager.getRootReducer()));
  */
 ```
 
+
 ### `getKnife(category)`
 The function `addKnife` is used to retrieve a knife from Redux Knife Manager.
 
@@ -216,6 +218,7 @@ The function `addKnife` is used to retrieve a knife from Redux Knife Manager.
 ```
   * **selector (Object):**  
     The collection of selector, and the properties of selector are based on `defaultState`. It will generate the `get` method to retrieve the whole state, and selectors to retrieve the property of `defaultState`.
+
 
 #### Example
 ```javascript
@@ -251,32 +254,34 @@ console.log(counterKnife.actionType.increase);
 
 // You can get the action type of decrease via the following statement
 console.log(counterKnife.actionType.decrease);
- 
+
 
 // 5. The collection of action
-// You can get the increase action via the following statement 
+// You can get the increase action via the following statement
 console.log(counterKnife.action.increase({ value: 1 }));
 
-// You can get the decrease action via the following statement 
+// You can get the decrease action via the following statement
 console.log(counterKnife.action.decrease({ value: 1 }));
 
 
 // 6. The collection of selector
-// You can get the whould state of counterKnife via the following statement 
+// You can get the whould state of counterKnife via the following statement
 // and the value should be { num: 0 }
 console.log(counterKnife.selector.get(store.getState()));
 
-// You can get the num value of counterKnife via the following statement 
+// You can get the num value of counterKnife via the following statement
 // and the value should be 0
 console.log(counterKnife.selector.getNum(store.getState()));
+
 
 // 7. Reducer should be also work well
 store.dispatch(counterKnife.action.increase({ value: 10 }));
 
-// You can get the num value of counterKnife via the following statement 
+// You can get the num value of counterKnife via the following statement
 // and the value should be 10
 console.log(counterKnife.selector.getNum(store.getState()));
 ```
+
 
 ### `getKnives()`
 The function `getKnives` will return all knives in Redux Knife Manager.
@@ -306,8 +311,9 @@ const knives = reduxKnifeManager.getKnives();
  */
 ```
 
+
 ### `getRootReducer()`
-The function `getRootReducer` is used to get the combined reducer of knives. It should be used to configured with redux store.
+The function `getRootReducer` is used to get combined reducers of knives. It should be used to configure with redux store.
 
 #### Returns
 * Return the **Object** of combined reducer of knives which are associated with `namespace`.
@@ -334,4 +340,4 @@ const store = createStore(combineReducers(reduxKnifeManager.getRootReducer()));
 * [redux-auto](https://github.com/codemeasandwich/redux-auto)
 
 ## License
-MIT.
+This project is licensed under the MIT license, Copyright (c) 2018 madetheforcebewithyou. For more information, please see `LICENSE.md`.
