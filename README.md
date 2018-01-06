@@ -19,10 +19,14 @@ Redux Knife Manager has following features:
 In short, it can be used to reduce the codebase complexity and gain the better convention while developing.
 
 ## Installation
-Please use the following command to install Redux Knife Manager, assume you use the package managment system with yarn.
+Please use the following command to install Redux Knife Manager, assume you use the package managment system with yarn or npm.
 
 ```shell
 yarn add redux-knife-manager redux
+
+or
+
+npm install redux-knife-manager redux --save
 ```
 
 ## How to use it?
@@ -328,6 +332,10 @@ reduxKnifeManager.add('k3', { ... });
 // 3. Configure the redux store
 const store = createStore(combineReducers(reduxKnifeManager.getRootReducer()));
 ```
+
+## Todo
+* Adding the example of integrate with redux-saga
+* Adding the example of integrate with re-select
 
 ## Inspired by
 * [ducks-modular-redux](https://github.com/erikras/ducks-modular-redux)
