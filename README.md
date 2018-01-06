@@ -263,18 +263,18 @@ console.log(counterKnife.action.decrease({ value: 1 }));
 
 // 6. The collection of selector
 // You can get the whould state of counterKnife via the following statement 
-// and the valud should be { num: 0 }
+// and the value should be { num: 0 }
 console.log(counterKnife.selector.get(store.getState()));
 
 // You can get the num value of counterKnife via the following statement 
-// and the valud should be 0
+// and the value should be 0
 console.log(counterKnife.selector.getNum(store.getState()));
 
 // 7. Reducer should be also work well
 store.dispatch(counterKnife.action.increase({ value: 10 }));
 
 // You can get the num value of counterKnife via the following statement 
-// and the valud should be 10
+// and the value should be 10
 console.log(counterKnife.selector.getNum(store.getState()));
 ```
 
