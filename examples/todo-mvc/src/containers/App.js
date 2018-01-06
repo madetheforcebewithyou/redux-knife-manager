@@ -7,7 +7,7 @@ import MainSection from '../components/MainSection';
 import { knives } from './../knives';
 
 const { action, selector } = knives.todo;
-const { getTodoList } = selector;
+const { getList } = selector;
 
 const App = ({ todos, actions }) => (
   <div>
@@ -22,7 +22,7 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  todos: getTodoList(state),
+  todos: getList(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

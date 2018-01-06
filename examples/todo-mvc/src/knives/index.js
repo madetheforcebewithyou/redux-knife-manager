@@ -1,6 +1,9 @@
 import reduxKnifeManager from 'redux-knife-manager';
 import todoConfig from './todo.js';
 
+// initialize the redux knife manager
+reduxKnifeManager.initialize();
+
 // add knives
 reduxKnifeManager.addKnife('todo', todoConfig);
 
