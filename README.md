@@ -337,4 +337,4 @@ const store = createStore(combineReducers(reduxKnifeManager.getRootReducer()));
 * [redux-auto](https://github.com/codemeasandwich/redux-auto)
 
 ## License
-This project is licensed under the MIT license, Copyright (c) 2018 madetheforcebewithyou. For more information, please see `LICENSE.md`.
+This project is licensed under the MIT license, Copyright (c) 2018 madetheforcebewithyou. For more information, please see `LICENSE`.
