@@ -1,6 +1,6 @@
 {
   "name": "redux-knife-manager",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "The redux utility for managing redux entities.",
   "repository": {
     "type": "git",
