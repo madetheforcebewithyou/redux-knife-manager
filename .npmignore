@@ -19,3 +19,4 @@ gulpfile.babel.js
 npm-debug.log*
 yarn-error.log*
 /examples/
+Makefile

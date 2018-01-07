@@ -61,9 +61,15 @@
     "eslint-precommit"
   ],
   "keywords": [
+    "react",
+    "react-redux",
     "redux",
     "redux-saga",
-    "redux management"
+    "management",
+    "reducer",
+    "action",
+    "selector",
+    "saga"
   ],
   "devDependencies": {
     "babel-cli": "^6.24.1",
