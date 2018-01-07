@@ -133,8 +133,6 @@ The function `initialize` is used to initialize Redux Knife Manager. Since Redux
 * **options (Object):**
   * **namespace (String, default: 'app'):**  
     The namespace is the prefix of top level of redux store to restore the state of knives.
-  * **actionTypeTimestamp (Boolean, default: true):**  
-    In order to avoid the collision of action type, Reudx Knife Manger will append the timestamp to the action type if its value is set to `true`.
 
 #### Example
 ```javascript
