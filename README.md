@@ -19,7 +19,7 @@ Redux Knife Manager has following features:
 In short, it can be used to reduce the codebase complexity and gain the better convention while developing.
 
 ## Installation
-Please use the following command to install Redux Knife Manager, assume you use the package managment system with yarn
+Please use the following command to install Redux Knife Manager, assume you use the package management system with yarn
 
 ```shell
 yarn add redux-knife-manager redux
