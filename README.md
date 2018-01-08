@@ -209,6 +209,8 @@ The function `addKnife` is used to retrieve a knife from Redux Knife Manager.
 * Return the **Knife Object** which is associated with the given `category`.
 * Otherwise, it will return **undefined** if the knife is not exist.
 * **Knife Object:**
+  * **selector (Object):**  
+    The collection of selector, and the properties of selector are based on `defaultState`. It will generate the `get` method to retrieve the whole state, and selectors to retrieve the property of `defaultState`.
   * **actionType (Object):**  
     The collection of action type, and the properties of actionType are based on `actionMap`.
   * **action (Object):**  
@@ -219,9 +221,6 @@ The function `addKnife` is used to retrieve a knife from Redux Knife Manager.
         ...payload,
       });
 ```
-  * **selector (Object):**  
-    The collection of selector, and the properties of selector are based on `defaultState`. It will generate the `get` method to retrieve the whole state, and selectors to retrieve the property of `defaultState`.
-
 
 #### Example
 ```javascript
