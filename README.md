@@ -1,10 +1,12 @@
 # Redux Knife Manager
 
 [![Build Status](https://travis-ci.org/madetheforcebewithyou/redux-knife-manager.svg?branch=master)](https://travis-ci.org/madetheforcebewithyou/redux-knife-manager)
-[![npm version](https://badge.fury.io/js/redux-knife-manager.svg)](https://badge.fury.io/js/redux-knife-manager)
-[![npm monthly download](https://img.shields.io/npm/dm/redux-knife-manager.svg)](https://www.npmjs.com/package/redux-knife-manager)
 [![Coverage Status](https://coveralls.io/repos/github/madetheforcebewithyou/redux-knife-manager/badge.svg?branch=master)](https://coveralls.io/github/madetheforcebewithyou/redux-knife-manager?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/6fe830dc12447fa3922b/maintainability)](https://codeclimate.com/github/madetheforcebewithyou/redux-knife-manager/maintainability)
+[![node version](https://img.shields.io/node/v/redux-knife-manager.svg)](https://nodejs.org/download)
+[![npm version](https://badge.fury.io/js/redux-knife-manager.svg)](https://badge.fury.io/js/redux-knife-manager)
+[![npm monthly download](https://img.shields.io/npm/dm/redux-knife-manager.svg)](https://www.npmjs.com/package/redux-knife-manager)
+[![license](https://img.shields.io/github/license/madetheforcebewithyou/redux-knife-manager.svg)](https://opensource.org/licenses/MIT)
 
 Redux Knife Manager is the lightweight library for easily managing, encapsulating and generating the redux entities such as action, reducer, selector and so on.
 
@@ -31,8 +33,9 @@ or npm.
 npm install --save redux-knife-manager redux
 ```
 
-## How to use it?
-### Configuration phase
+## Quick start
+1. Consider the counter application, we need to configure the `counter knife` first.
+
 ```javascript
 import { createStore, combineReducers } from 'redux';
 import reduxKnifeManager from 'redux-knife-manager';
@@ -61,7 +64,8 @@ reduxKnifeManager.addKnife('counter', {
 const store = createStore(combineReducers(reduxKnifeManager.getRootReducer()));
 ```
 
-### Use knives in the redux container
+2. After configuring the `counter knife`, we can now get the counter value and dispatch the increase/decrease action.
+
 ```javascript
 import React from 'react';
 import { connect } from 'react-redux';
@@ -108,7 +112,8 @@ export default class App extends React.Comopnent {
 }
 ```
 
-### It can also be used in the redux saga flow
+3. The `counter knife` can be also used in other places, assume you are using `redux-saga` in asynchronous flow management.
+
 ```javascript
 import { takeEvery } from 'redux-saga/effects';
 import reduxKnifeManager from 'redux-knife-manager';
