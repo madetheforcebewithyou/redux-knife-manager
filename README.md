@@ -68,6 +68,7 @@ const store = createStore(combineReducers(reduxKnifeManager.getRootReducer()));
 
 ```javascript
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import reduxKnifeManager from 'redux-knife-manager';
 
@@ -84,8 +85,11 @@ function mapStateToProps(state) {
 // 3. Connect to redux
 @connect(mapStateToProps)
 export default class App extends React.Comopnent {
-  ...
-
+  static propTypes = { 
+    dispatch: PropTypes.func,
+    num: PropTypes.number,
+  };
+  
   onIncrease() {
     // dispatch the increase action
     const { dispatch } = this.props;
@@ -121,8 +125,9 @@ import reduxKnifeManager from 'redux-knife-manager';
 const counterKnife = reduxKnifeManager.getKnife('counter');
 
 export default function* counterSaga() {
-  yield takeEvery(counterKnife.actionType.increase, function* handleIncrese() {
-    ...
+  yield takeEvery(counterKnife.actionType.increase, function* handleIncrese(action) {
+    // do something like print the action value
+    console.log(action);
   });
 }
 ```
