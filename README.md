@@ -166,8 +166,8 @@ The function `addKnife` is used to add a knife to Redux Knife Manager. It will g
     The default state of knife which is associated with `category`. In addition, the collection of selector will also be generated.
 
 #### Returns
-* Return **true** if the knife is configured successfully.
-* Otherwise, **false**.
+* Return **Knife Object** if the knife is configured successfully.
+* Otherwise, **undefined**.
 
 #### Example
 ```javascript
