@@ -32,8 +32,7 @@ deploy:
     node: '6'
     tags: true
     repo: madetheforcebewithyou/redux-knife-manager
-    condition: "$TRAVIS_TAG =~ ^v([0-9]+.){2}[0-9]+$"
-    all_branches: true
+    condition: "$TRAVIS_TAG =~ ^v([0-9]+[.]){2}[0-9]+$"
 
 notifications:
   email:
