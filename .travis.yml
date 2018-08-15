@@ -30,6 +30,7 @@ deploy:
     secure: JxObF6OG+6Tkqd+m0jfEQiMpNYeneMe6/7xiVcTqTD5DxyU4OvgtSU9FXcEEowCPncjAJRob71XhpdI5PKkdoLJRe3tuIthYtPz14d4ceFBGsbLDro1nwKRgtlJL4GsflXiwutDwVUTWF1HFhcmOJOs5F0bIcBXy2DyhLrrp3mCJvzVP3hTSs4yoTPaATKfaqUqzF/40t2z226lzg9ZsXnBoS8pLKUYDdj/ucJMBTh8czrOOyvRoXUVIviU5tmvYJsNG7Xfpv7ANpJo17dm2PUSctkL2SjrAw4vdKI/pt5muuVvgEcK15yw1748pLjvLy2oNBRf7Meuq5Mn5JZS/OgbcXOrok/rHU0/XFR4CYLfbk3fnS3Qm+krqAH4jic18ip7hUSSwRdJVDI/xIeHONStLIDZHy1zzUClV5VNvosAmPW8uT0bcHlVZrrVVV5sIwm5rmSFnupnmPxPO/bzPCwBxXqC+rA5Iith5TZVQIhF2Z0U4LM6JqEfmfjtB0NUUMnBt/Uoe4jksVlEjBZQfGu9yDhHyqJXRpwC2kg/dM28jPnvgMv05G6idWxdFQxJRO9h5+8oTATr4GVGMlRpideBzEwpLPuiSmO0FuBUlGIhANJq05e8C9+f/JIWUHWYBBEjFMNZ2szOQ7WloVmDsHykV+kg4OrdunJGzebBTeAU=
   on:
     node: '6'
+    tags: true
     repo: madetheforcebewithyou/redux-knife-manager
     condition: "$TRAVIS_TAG =~ ^v([0-9]+.){2}[0-9]+$"
     all_branches: true
