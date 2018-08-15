@@ -8,7 +8,7 @@ export default {
     'clearCompleted',
   ],
   reducerMap: ({
-    addTodo, deleteTodo, editTodo, completeTodo, completeAll, clearCompleted,
+    todo: { addTodo, deleteTodo, editTodo, completeTodo, completeAll, clearCompleted },
   }) => ({
     [addTodo]: (state, { text }) => ({
       list: [

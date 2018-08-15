@@ -11,6 +11,7 @@
 Redux Knife Manager is the lightweight library for easily managing, encapsulating and generating the redux entities such as action, reducer, selector and so on.
 
 Redux Knife Manager has following features:
+* It is very suitable for [redux](https://github.com/reactjs/redux), [redux-saga](https://github.com/redux-saga/redux-saga) and related stacks.
 * Use naming convention to generate the redux action, redux action type and selector automatically.
 * Keep the codebase more cleaner even if cross-container interactions are very often.
 * Prevent the collision of action type constants.
@@ -46,7 +47,7 @@ reduxKnifeManager.initialize();
 // 2. Add a knife to Redux Knife Manager
 reduxKnifeManager.addKnife('counter', {
   actionMap: ['increase', 'decrease'],
-  reducerMap: ({ increase, decrease }) => ({
+  reducerMap: ({ counter: { increase, decrease } }) => ({
     [increase]: (state, action) => ({
       num: state.num + action.value,
     }),
@@ -63,12 +64,15 @@ reduxKnifeManager.addKnife('counter', {
 // 3. reducer can also listen cross-category actions
 reduxKnifeManager.addKnife('inverse', {
   actionMap: ['reset'],
-  reducerMap: ({ counter$increase, counter$decrease }) => ({
-    [counter$increase]: (state, action) => ({
+  reducerMap: ({
+    counter: { increase, decrease },
+    inverse: { reset },
+  }) => ({
+    [counter]: (state, action) => ({
       num: state.num - action.value,
     }),
 
-    [counter$decrease]: (state, action) => ({
+    [counter]: (state, action) => ({
       num: state.num + action.value,
     }),
 
@@ -201,7 +205,7 @@ reduxKnifeManager.initialize({
 // 2. Add a knife to Reudx Knife Manager
 reduxKnifeManager.addKnife('counter', {
   actionMap: ['increase', 'decrease'],
-  reducerMap: ({ increase, decrease }) => ({
+  reducerMap: ({ counter: { increase, decrease } }) => ({
     [increase]: (state, action) => ({
       num: state.num + action.value,
     }),
@@ -218,12 +222,15 @@ reduxKnifeManager.addKnife('counter', {
 // 3. reducer can also listen cross-category actions
 reduxKnifeManager.addKnife('inverse', {
   actionMap: ['reset'],
-  reducerMap: ({ counter$increase, counter$decrease }) => ({
-    [counter$increase]: (state, action) => ({
+  reducerMap: ({
+    counter: { increase, decrease },
+    inverse: { reset },
+  }) => ({
+    [increase]: (state, action) => ({
       num: state.num - action.value,
     }),
 
-    [counter$decrease]: (state, action) => ({
+    [decrease]: (state, action) => ({
       num: state.num + action.value,
     }),
 
@@ -287,7 +294,7 @@ reduxKnifeManager.initialize({
 // 2. Add a knife to Redux Knife Manager
 reduxKnifeManager.addKnife('counter', {
   actionMap: ['increase', 'decrease'],
-  reducerMap: ({ increase, decrease }) => ({
+  reducerMap: ({ counter: { increase, decrease } }) => ({
     [increase]: (state, action) => ({
       num: state.num + action.value,
     }),
