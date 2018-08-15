@@ -60,7 +60,28 @@ reduxKnifeManager.addKnife('counter', {
   },
 });
 
-// 3. Configure the redux store
+// 3. reducer can also listen cross-category actions
+reduxKnifeManager.addKnife('inverse', {
+  actionMap: ['reset'],
+  reducerMap: ({ counter$increase, counter$decrease }) => ({
+    [counter$increase]: (state, action) => ({
+      num: state.num - action.value,
+    }),
+
+    [counter$decrease]: (state, action) => ({
+      num: state.num + action.value,
+    }),
+
+    [reset]: () => ({
+      num: 0,
+    }),
+  }),
+  defaultState: {
+    num: 0,
+  },
+});
+
+// 4. Configure the redux store
 const store = createStore(combineReducers(reduxKnifeManager.getRootReducer()));
 ```
 
@@ -85,11 +106,11 @@ function mapStateToProps(state) {
 // 3. Connect to redux
 @connect(mapStateToProps)
 export default class App extends React.Comopnent {
-  static propTypes = { 
+  static propTypes = {
     dispatch: PropTypes.func,
     num: PropTypes.number,
   };
-  
+
   onIncrease() {
     // dispatch the increase action
     const { dispatch } = this.props;
@@ -194,15 +215,39 @@ reduxKnifeManager.addKnife('counter', {
   },
 });
 
-// 3. Configure the redux store
+// 3. reducer can also listen cross-category actions
+reduxKnifeManager.addKnife('inverse', {
+  actionMap: ['reset'],
+  reducerMap: ({ counter$increase, counter$decrease }) => ({
+    [counter$increase]: (state, action) => ({
+      num: state.num - action.value,
+    }),
+
+    [counter$decrease]: (state, action) => ({
+      num: state.num + action.value,
+    }),
+
+    [reset]: () => ({
+      num: 0,
+    }),
+  }),
+  defaultState: {
+    num: 0,
+  },
+});
+
+// 4. Configure the redux store
 const store = createStore(combineReducers(reduxKnifeManager.getRootReducer()));
 
-/* 4. The redux store will be as follow:
+/* 6. The redux store will be as follow:
  * {
  *   example: {
  *     counter: {
- *       num: 0
- *     }
+ *       num: 0,
+ *     },
+ *     inverse: {
+ *       num: 0,
+ *     },
  *  }
  */
 ```
