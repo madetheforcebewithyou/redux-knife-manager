@@ -1,43 +1,36 @@
 language: node_js
 node_js:
-  - '6'
-  - '8'
-
+- '6'
+- '8'
 matrix:
   fast_finish: true
-
 cache:
   yarn: true
   directories:
-    - node_modules
-
+  - node_modules
 before_script:
-  - yarn run install-peer
-
+- yarn run install-peer
 script:
-  - yarn run eslint
-  - yarn run test
-  - yarn run build
-
+- yarn run eslint
+- yarn run test
+- yarn run build
 after_success:
-  - yarn run coveralls
-
+- yarn run coveralls
 deploy:
   provider: npm
   skip_cleanup: true
   email: lalayueh@gmail.com
   api_key:
-    secure: JxObF6OG+6Tkqd+m0jfEQiMpNYeneMe6/7xiVcTqTD5DxyU4OvgtSU9FXcEEowCPncjAJRob71XhpdI5PKkdoLJRe3tuIthYtPz14d4ceFBGsbLDro1nwKRgtlJL4GsflXiwutDwVUTWF1HFhcmOJOs5F0bIcBXy2DyhLrrp3mCJvzVP3hTSs4yoTPaATKfaqUqzF/40t2z226lzg9ZsXnBoS8pLKUYDdj/ucJMBTh8czrOOyvRoXUVIviU5tmvYJsNG7Xfpv7ANpJo17dm2PUSctkL2SjrAw4vdKI/pt5muuVvgEcK15yw1748pLjvLy2oNBRf7Meuq5Mn5JZS/OgbcXOrok/rHU0/XFR4CYLfbk3fnS3Qm+krqAH4jic18ip7hUSSwRdJVDI/xIeHONStLIDZHy1zzUClV5VNvosAmPW8uT0bcHlVZrrVVV5sIwm5rmSFnupnmPxPO/bzPCwBxXqC+rA5Iith5TZVQIhF2Z0U4LM6JqEfmfjtB0NUUMnBt/Uoe4jksVlEjBZQfGu9yDhHyqJXRpwC2kg/dM28jPnvgMv05G6idWxdFQxJRO9h5+8oTATr4GVGMlRpideBzEwpLPuiSmO0FuBUlGIhANJq05e8C9+f/JIWUHWYBBEjFMNZ2szOQ7WloVmDsHykV+kg4OrdunJGzebBTeAU=
+    secure: hcKRoffO8JLwpBQTC/AvgPOJyTsJv18y1AaFGbQzuynn0hoOcI+3QPBGnGmAU4GIYvN5BnpZrSM0IUCiliObVBysKtEcojIcDXvNhxfo2xhGM7Brkg/DxGhifrsLTuRGf7JlnFt/2RhCu15PdOi5ckGOD8txhs9mOWIFUREzKwA2Sc7sHn+oyl7iKelgZteYw/tvhEatS+O5VLqOacglHnjQFI416K8PmM8CR7BFyljvX+L4iASIpajR9iX0Cx7KVVlpCO1yijKso+BA/9JoRqeTpLwEIKjv4ftWH2XRQxec75s9Nh6i9/zvAVag0nXBTgxbxVu4IF+dxVRQ3ALcHIYKX7fKT2dE2kRrgw6nd/7R5l0RIfcUSCTDvNZi7jFh1ThBEit2kstgQqt027xijiDCIJJQ4k/t3n2ZmP1J87AnNPsTD+4EO+SpqpmGYx9iROtRrLAFBe3zp22o4iOHsJmPIcRC3Hd5kGzg7sDlS8kT4wrY54xqMKoagT2rCg4fU3qf8yRfPbomX0FgWOc8p6KXd4CYwYRIlV1hM456VOyblCJlqzSFfdNaNFuAMbCFUVYKVoKiaDdWhJAcAKCtV+8HJmOQSdEbyrXTEMQR2OMsvdhajR2E8mfk8D+WA10WJbxRE86MSx3M8Tirh1Mhp3BagbPEZTJeDPxYikS+P4s=
   on:
     node: '6'
     tags: true
     repo: madetheforcebewithyou/redux-knife-manager
     condition: "$TRAVIS_TAG =~ ^v([0-9]+[.]){2}[0-9]+$"
-
 notifications:
   email:
     recipients:
-      - lalayueh@gmail.com
-      - bob76828@gmail.com
+    - lalayueh@gmail.com
+    - bob76828@gmail.com
     on_success: change
     on_failure: always
