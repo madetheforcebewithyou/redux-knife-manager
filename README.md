@@ -47,7 +47,7 @@ reduxKnifeManager.initialize();
 // 2. Add a knife to Redux Knife Manager
 reduxKnifeManager.addKnife('counter', {
   actionMap: ['increase', 'decrease'],
-  reducerMap: ({ counter: { increase, decrease } }) => ({
+  reducerMap: ({ increase, decrease }) => ({
     [increase]: (state, action) => ({
       num: state.num + action.value,
     }),
@@ -64,10 +64,10 @@ reduxKnifeManager.addKnife('counter', {
 // 3. reducer can also listen cross-category actions
 reduxKnifeManager.addKnife('inverse', {
   actionMap: ['reset'],
-  reducerMap: ({
-    counter: { increase, decrease },
-    inverse: { reset },
-  }) => ({
+  reducerMap: (
+    { reset },
+    { counter: { increase, decrease } },
+  ) => ({
     [counter]: (state, action) => ({
       num: state.num - action.value,
     }),
@@ -103,7 +103,7 @@ const counterKnife = reduxKnifeManager.getKnife('counter');
 // 2. Configure the mapStateToProps
 function mapStateToProps(state) {
   return {
-    num: counterKnife.selector.getNum(state),
+    num: counterKnife.selector.get(state, 'num'),
   };
 }
 
@@ -185,10 +185,10 @@ The function `addKnife` is used to add a knife to Redux Knife Manager. It will g
 * **config (Object):**  
   * **actionMap (Array of String):**  
     Redux Knife Manager will generate collections of action generator and action type which are based on `actionMap`.
-  * **reducerMap (Function):**  
+  * **reducerMap (Function(actionType, allActionType)):**  
     Redux Knife Manager will pass generated actions to `reducerMap`. And it **must** return the object of definition of reducers which are associated with spicfied actions.
   * **defaultState (Object):**  
-    The default state of knife which is associated with `category`. In addition, the collection of selector will also be generated.
+    The default state of knife which is associated with `category`.
 
 #### Returns
 * Return **Knife Object** if the knife is configured successfully.
@@ -205,7 +205,7 @@ reduxKnifeManager.initialize({
 // 2. Add a knife to Reudx Knife Manager
 reduxKnifeManager.addKnife('counter', {
   actionMap: ['increase', 'decrease'],
-  reducerMap: ({ counter: { increase, decrease } }) => ({
+  reducerMap: ({ increase, decrease }) => ({
     [increase]: (state, action) => ({
       num: state.num + action.value,
     }),
@@ -222,10 +222,10 @@ reduxKnifeManager.addKnife('counter', {
 // 3. reducer can also listen cross-category actions
 reduxKnifeManager.addKnife('inverse', {
   actionMap: ['reset'],
-  reducerMap: ({
-    counter: { increase, decrease },
-    inverse: { reset },
-  }) => ({
+  reducerMap: (
+    { reset },
+    { counter: { increase, decrease } },
+  ) => ({
     [increase]: (state, action) => ({
       num: state.num - action.value,
     }),
@@ -272,7 +272,7 @@ The function `addKnife` is used to retrieve a knife from Redux Knife Manager.
 * Otherwise, it will return **undefined** if the knife is not exist.
 * **Knife Object:**
   * **selector (Object):**  
-    The collection of selector, and the properties of selector are based on `defaultState`. It will generate the `get` method to retrieve the whole state, and selectors to retrieve the property of `defaultState`.
+    The collection of selector. It will generate the `get` method to retrieve the whole state, and selectors to retr.
   * **actionType (Object):**  
     The collection of action type, and the properties of actionType are based on `actionMap`.
   * **action (Object):**  
@@ -294,7 +294,7 @@ reduxKnifeManager.initialize({
 // 2. Add a knife to Redux Knife Manager
 reduxKnifeManager.addKnife('counter', {
   actionMap: ['increase', 'decrease'],
-  reducerMap: ({ counter: { increase, decrease } }) => ({
+  reducerMap: ({ increase, decrease }) => ({
     [increase]: (state, action) => ({
       num: state.num + action.value,
     }),
@@ -335,7 +335,7 @@ console.log(counterKnife.selector.get(store.getState()));
 
 // You can get the num value of counterKnife via the following statement
 // and the value should be 0
-console.log(counterKnife.selector.getNum(store.getState()));
+console.log(counterKnife.selector.get(store.getState(), 'num'));
 
 
 // 7. Reducer should also work well
@@ -343,7 +343,7 @@ store.dispatch(counterKnife.action.increase({ value: 10 }));
 
 // You can get the num value of counterKnife via the following statement
 // and the value should be 10
-console.log(counterKnife.selector.getNum(store.getState()));
+console.log(counterKnife.selector.get(store.getState(), 'num'));
 ```
 
 
